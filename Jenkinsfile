@@ -54,12 +54,12 @@ pipeline {
             }
         }
         stage('Deploy to Production') {
-            environment {
-                HEROKU_API_KEY = credentials('HEROKU_API_KEY')
-            }
+           // environment {
+             //   HEROKU_API_KEY = credentials('HEROKU_API_KEY')
+           // }
             steps {
                 unstash 'app'
-                gradlew('deployHeroku')
+             // gradlew('deployHeroku')
             }
         }
     }
