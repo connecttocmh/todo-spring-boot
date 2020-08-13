@@ -38,6 +38,7 @@ pipeline {
                 }
                 stage('Code Analysis') {
                     steps {
+                        echo 'Running Placeholder for SonarCloud'
                         gradlew('sonarqube')
                     }
                 }
