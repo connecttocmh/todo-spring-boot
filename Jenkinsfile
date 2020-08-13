@@ -22,6 +22,9 @@ pipeline {
             }
         }
         stage('Long-running Verification') {
+            environment {
+                SONAR_LOGIN = credentials('SONARCLOUD_TOKEN')
+            }
             parallel {
                 stage('Integration Tests') {
                     steps {
@@ -71,5 +74,5 @@ pipeline {
 }
 
 def gradlew(String... args) {
-    bat label: '', script: '${args.join(' ')}'
+    sh "./gradlew ${args.join(' ')} -s"
 }
